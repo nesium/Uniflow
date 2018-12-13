@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import NittyGritty
+import NSMFoundation
 import RxSwift
 
 public class StoreQueue<StateType, ActionType> {
@@ -48,7 +48,7 @@ public class StoreQueue<StateType, ActionType> {
   private lazy var completionHandlers = [() -> ()]()
 
   public var isEmpty: Bool {
-    return DispatchQueue.ng_syncOnMainThread {
+    return DispatchQueue.nsm_syncOnMainThread {
       self.unguardedQueueIsEmpty
     }
   }
@@ -62,7 +62,7 @@ public class StoreQueue<StateType, ActionType> {
     var observableResult: CompletableEvent? = nil
 
     let observable = Completable.create { observer in
-      DispatchQueue.ng_asyncOnMainThread {
+      DispatchQueue.nsm_asyncOnMainThread {
         if let result = observableResult {
           observer(result)
           return
@@ -110,7 +110,7 @@ public class StoreQueue<StateType, ActionType> {
   }
 
   public func addCompletion(_ handler: @escaping () -> ()) {
-    DispatchQueue.ng_asyncOnMainThread {
+    DispatchQueue.nsm_asyncOnMainThread {
       guard !self.unguardedQueueIsEmpty else {
         handler()
         return
@@ -121,7 +121,7 @@ public class StoreQueue<StateType, ActionType> {
   }
 
   private func executeNext() {
-    precondition(DispatchQueue.ng_isMain)
+    precondition(DispatchQueue.nsm_isMain)
     precondition(self.currentItem == nil)
 
     guard var item = items.popLast() else {
@@ -142,7 +142,7 @@ public class StoreQueue<StateType, ActionType> {
   }
 
   private var unguardedQueueIsEmpty: Bool {
-    precondition(DispatchQueue.ng_isMain)
+    precondition(DispatchQueue.nsm_isMain)
     return self.currentItem == nil && self.items.isEmpty
   }
 }

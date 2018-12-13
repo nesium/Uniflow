@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import NittyGritty
+import NSMFoundation
 import RxSwift
 
 public struct AsyncActionCreator<StateType, ActionType>: Monoid {

@@ -1,6 +1,6 @@
 //
 //  StoreTests.swift
-//  W2BackendTests
+//  UniflowTests
 //
 //  Created by Marc Bauer on 19.10.17.
 //  Copyright © 2017 nesiumdotcom. All rights reserved.

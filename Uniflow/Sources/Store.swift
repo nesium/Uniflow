@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import NittyGritty
+import NSMFoundation
 import RxSwift
 
 public class Store<StateType, ActionType> {
@@ -23,7 +23,7 @@ public class Store<StateType, ActionType> {
   private lazy var disposeBag = DisposeBag()
 
   public var state: StateType {
-    return DispatchQueue.ng_syncOnMainThread { self._state }
+    return DispatchQueue.nsm_syncOnMainThread { self._state }
   }
 
   public var observableState: Observable<StateType> {
@@ -45,7 +45,7 @@ public class Store<StateType, ActionType> {
 
     if let middleware = middleware {
       let stateLookup: GetState = { [weak self] in
-        DispatchQueue.ng_syncOnMainThread {
+        DispatchQueue.nsm_syncOnMainThread {
           self?._state ?? initialState
         }
       }
@@ -67,7 +67,7 @@ public class Store<StateType, ActionType> {
   }
 
   public func dispatch(_ action: ActionType) {
-    DispatchQueue.ng_asyncOnMainThread {
+    DispatchQueue.nsm_asyncOnMainThread {
       self._dispatch(action)
     }
   }
@@ -95,7 +95,7 @@ public class Store<StateType, ActionType> {
   internal func createDispatchAndLookup() -> ((ActionType) -> (), () -> (StateType)) {
     let state = self.state
     let stateLookup: () -> (StateType) = { [weak self] in
-      DispatchQueue.ng_syncOnMainThread {
+      DispatchQueue.nsm_syncOnMainThread {
         self?._state ?? state
       }
     }
@@ -103,7 +103,7 @@ public class Store<StateType, ActionType> {
   }
 
   private func performDispatch(_ action: ActionType) {
-    DispatchQueue.ng_asyncOnMainThread {
+    DispatchQueue.nsm_asyncOnMainThread {
       self.reducer.reduce(&self._state, action)
     }
   }

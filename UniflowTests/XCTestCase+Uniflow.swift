@@ -1,6 +1,6 @@
 //
 //  XCTestCase+Uniflow.swift
-//  NSMRxBindingTests
+//  UniflowTests
 //
 //  Created by Marc Bauer on 11.11.17.
 //  Copyright © 2017 nesiumdotcom. All rights reserved.

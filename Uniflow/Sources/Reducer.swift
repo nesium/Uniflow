@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import NittyGritty
+import NSMFoundation
 
 public struct Reducer<S, A>: Monoid {
   let reduce: (inout S, A) -> Void

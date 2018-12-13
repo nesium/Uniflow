@@ -1,2 +1,2 @@
 github "ReactiveX/RxSwift" ~> 4.4
-git "file:///Users/mb/Documents/Nsm/NittyGritty" "master"
+github "nesium/NSMFoundation" "master"

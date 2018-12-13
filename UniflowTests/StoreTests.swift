@@ -1,13 +1,13 @@
 //
 //  ReduxStoreTests.swift
-//  NSMRxBindingTests
+//  UniflowTests
 //
 //  Created by Marc Bauer on 20.02.18.
 //  Copyright © 2018 nesiumdotcom. All rights reserved.
 //
 
+import NSMFoundation
 import RxSwift
-import NittyGritty
 import Uniflow
 import XCTest
 

@@ -1,13 +1,13 @@
 //
 //  ReducerTests.swift
-//  NSMRxBindingTests
+//  UniflowTests
 //
 //  Created by Marc Bauer on 16.01.18.
 //  Copyright © 2018 nesiumdotcom. All rights reserved.
 //
 
 import Foundation
-import NittyGritty
+import NSMFoundation
 import Uniflow
 import XCTest
 

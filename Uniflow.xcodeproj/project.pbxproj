@@ -15,16 +15,16 @@
 		2C949F6121BBCD3000BC368A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C949F5A21BBCD3000BC368A /* Store.swift */; };
 		2C949F6321BBCD3000BC368A /* ActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C949F5C21BBCD3000BC368A /* ActionCreator.swift */; };
 		2C949F6621BBCDA800BC368A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C949F6521BBCDA800BC368A /* RxSwift.framework */; };
-		2C949F9821BBD59800BC368A /* NittyGritty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C949F9721BBD59800BC368A /* NittyGritty.framework */; };
 		2C949F9E21BBD9DC00BC368A /* AsyncActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C949F9D21BBD9DC00BC368A /* AsyncActionCreator.swift */; };
 		2C949FA321BBDAB700BC368A /* QueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C949F9F21BBDAB700BC368A /* QueueTests.swift */; };
 		2C949FA421BBDAB700BC368A /* XCTestCase+Uniflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C949FA021BBDAB700BC368A /* XCTestCase+Uniflow.swift */; };
 		2C949FA521BBDAB700BC368A /* ReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C949FA121BBDAB700BC368A /* ReducerTests.swift */; };
 		2C949FA621BBDAB700BC368A /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C949FA221BBDAB700BC368A /* StoreTests.swift */; };
 		2C949FA721BBDADA00BC368A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C949F6521BBCDA800BC368A /* RxSwift.framework */; };
-		2C949FA921BBDB9A00BC368A /* NittyGritty.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2C949F9721BBD59800BC368A /* NittyGritty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2C949FAA21BBDB9D00BC368A /* RxSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2C949F6521BBCDA800BC368A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2C949FAC21BBEF7500BC368A /* MiddlewareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C949FAB21BBEF7500BC368A /* MiddlewareTests.swift */; };
+		2CA26E3421C227F3001004EE /* NSMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA26E3321C227F3001004EE /* NSMFoundation.framework */; };
+		2CA26E3521C22807001004EE /* NSMFoundation.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA26E3321C227F3001004EE /* NSMFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2C949FA921BBDB9A00BC368A /* NittyGritty.framework in Copy Frameworks */,
+				2CA26E3521C22807001004EE /* NSMFoundation.framework in Copy Frameworks */,
 				2C949FAA21BBDB9D00BC368A /* RxSwift.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -64,13 +64,13 @@
 		2C949F5A21BBCD3000BC368A /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2C949F5C21BBCD3000BC368A /* ActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCreator.swift; sourceTree = "<group>"; };
 		2C949F6521BBCDA800BC368A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		2C949F9721BBD59800BC368A /* NittyGritty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NittyGritty.framework; path = Carthage/Build/iOS/NittyGritty.framework; sourceTree = "<group>"; };
 		2C949F9D21BBD9DC00BC368A /* AsyncActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncActionCreator.swift; sourceTree = "<group>"; };
 		2C949F9F21BBDAB700BC368A /* QueueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueTests.swift; sourceTree = "<group>"; };
 		2C949FA021BBDAB700BC368A /* XCTestCase+Uniflow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Uniflow.swift"; sourceTree = "<group>"; };
 		2C949FA121BBDAB700BC368A /* ReducerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReducerTests.swift; sourceTree = "<group>"; };
 		2C949FA221BBDAB700BC368A /* StoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTests.swift; sourceTree = "<group>"; };
 		2C949FAB21BBEF7500BC368A /* MiddlewareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddlewareTests.swift; sourceTree = "<group>"; };
+		2CA26E3321C227F3001004EE /* NSMFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NSMFoundation.framework; path = Carthage/Build/iOS/NSMFoundation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C949F9821BBD59800BC368A /* NittyGritty.framework in Frameworks */,
+				2CA26E3421C227F3001004EE /* NSMFoundation.framework in Frameworks */,
 				2C949F6621BBCDA800BC368A /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,7 +153,7 @@
 		2C949F6421BBCDA800BC368A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2C949F9721BBD59800BC368A /* NittyGritty.framework */,
+				2CA26E3321C227F3001004EE /* NSMFoundation.framework */,
 				2C949F6521BBCDA800BC368A /* RxSwift.framework */,
 			);
 			name = Frameworks;

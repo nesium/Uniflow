@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import NittyGritty
+import NSMFoundation
 
 public typealias Dispatch<ActionType> = (ActionType) -> ()
 public typealias GetState<StateType> = () -> (StateType)

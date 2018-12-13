@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import NittyGritty
+import NSMFoundation
 import RxSwift
 import Uniflow
 import XCTest
