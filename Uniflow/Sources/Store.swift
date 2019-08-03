@@ -81,15 +81,19 @@ public class Store<StateType, ActionType> {
   public func dispatch(_ actionCreator: AsyncActionCreator<StateType, ActionType>) -> Completable {
     let (dispatch, stateLookup) = self.createDispatchAndLookup()
 
-    // Share observable
+    let subject = AsyncSubject<Never>()
     let observable = actionCreator.exec(dispatch, stateLookup)
+
+    _ = observable
       .asObservable()
-      .share()
+      .subscribe(subject)
 
-    // Make it hot
-    _ = observable.subscribe(onCompleted: {})
-
-    return observable.asCompletable()
+    return Completable.create { observer in
+      subject.subscribe(
+        onError: { observer(.error($0)) },
+        onCompleted: { observer(.completed) }
+      )
+    }
   }
 
   internal func createDispatchAndLookup() -> ((ActionType) -> (), () -> (StateType)) {

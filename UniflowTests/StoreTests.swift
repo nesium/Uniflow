@@ -196,4 +196,55 @@ class StoreTests: XCTestCase {
 
     waitForExpectations(timeout: 1)
   }
+
+  func testMultipleSerialSubscriptionsOnStoreDoNotExecuteObservableMultipleTimes() {
+    let store = Store(reducer: UniflowTests.reducer, initialState: MyState())
+
+    let dispatch = store.dispatch(PushItemAction(item: 99, delay: 0.1)).debug()
+
+    let exp = expectation(description: "Waiting…")
+
+    _ = dispatch
+      .andThen(Completable.deferred {
+        dispatch
+      }.delay(.milliseconds(100), scheduler: MainScheduler.instance))
+      .subscribe(onCompleted: {
+        XCTAssertEqual(store.state.items, [99])
+        exp.fulfill()
+      })
+
+    waitForExpectations(timeout: 1)
+  }
+
+  func testEverythingIsReleased() {
+    var actionIsDisposed = false
+
+    let action: AsyncActionCreator<MyState, MyAction> = AsyncActionCreator { dispatch, getState in
+      return Completable.create { observer in
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.1) {
+          dispatch(.addItem(100))
+          observer(.completed)
+        }
+        return Disposables.create()
+      }
+        .do(onDispose: {
+          actionIsDisposed = true
+        })
+    }
+
+    let store = Store(reducer: UniflowTests.reducer, initialState: MyState())
+    let exp = expectation(description: "Waiting…")
+
+    _ = store.dispatch(action)
+      .andThen(Completable.deferred {
+        Completable.empty().delay(.milliseconds(100), scheduler: MainScheduler.instance)
+      })
+      .do(onDispose: {
+        XCTAssertTrue(actionIsDisposed)
+        exp.fulfill()
+      })
+      .subscribe()
+
+    waitForExpectations(timeout: 1)
+  }
 }
