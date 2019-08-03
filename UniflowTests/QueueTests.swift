@@ -227,7 +227,7 @@ class QueueTests: XCTestCase {
     let queue = StoreQueue(store: store)
 
     expect(timeout: 2) { done in
-      Completable.merge(
+      Completable.zip(
         queue.enqueue(SquareLastItemAction(delay: 0.2)),
         queue.enqueue(SquareLastItemAction(delay: 0.0)),
         queue.enqueue(SquareLastItemAction(delay: 0.4)),
@@ -312,7 +312,7 @@ class QueueTests: XCTestCase {
 
     expect { done in
       Observable<Void>.create { observer in
-        let sub = Completable.merge(
+        let sub = Completable.zip(
           queue.enqueue(PushItemAction(item: 2, delay: 0.1)),
           queue.enqueue(PushItemAction(item: 3, delay: 0))
         )
